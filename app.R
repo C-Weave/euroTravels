@@ -16,13 +16,13 @@ ui <- fluidPage(fillPage(tags$style(type = "text/css",
                                     "#mymap {height: 100vh !important;
                                     width: 100vw !important;
                                     margin-left: -15px; !important;}"),
-                         leafletOutput("mymap", width = "100%",height = "100%")
-))
+                         leafletOutput("mymap", width = "100%",height = "100%")))
 
 server <- function(input, output) {
   output$mymap <- renderLeaflet({ leaflet() %>%
       addTiles() %>%
-      addMarkers(data = data, lng = ~long, lat = ~lat,icon = passportIcon, popup = ~city) %>%
+      addMarkers(data = data, lng = ~long, lat = ~lat,icon = passportIcon, popup = ~paste("<b>City</b>", data$city, "<br>",
+                                                                                          "<b>Country:</b>", data$country, "<br>")) %>%
       addProviderTiles(providers$Esri.NatGeoWorldMap)
     
   })
