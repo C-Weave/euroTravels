@@ -2,7 +2,7 @@ library(leaflet)
 library(shiny)
 library(sp)
 
-data <- read.csv("./euroTravels/data/cities.csv")
+data <- read.csv("csv/cities.csv")
 
 data$long <- as.numeric(data$long)
 data$lat <- as.numeric(data$lat)
@@ -17,8 +17,8 @@ ui <- fluidPage(fillPage(tags$style(type = "text/css",
                                     width: 100vw !important;
                                     margin-left: -15px; !important;}"),
                          leafletOutput("mymap", width = "100%",height = "100%")
-)
-)
+))
+
 server <- function(input, output) {
   output$mymap <- renderLeaflet({ leaflet() %>%
       addTiles() %>%
