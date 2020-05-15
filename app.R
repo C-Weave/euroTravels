@@ -2,7 +2,7 @@ library(leaflet)
 library(shiny)
 library(sp)
 
-data <- read.csv("csv/cities.csv")
+data <- read.csv("data/cities.csv")
 
 data$long <- as.numeric(data$long)
 data$lat <- as.numeric(data$lat)
