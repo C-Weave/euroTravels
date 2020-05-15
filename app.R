@@ -26,7 +26,7 @@ server <- function(input, output) {
       addTiles() %>%
       addMarkers(data = data, lng = ~long, lat = ~lat,icon = passportIcon, popup = ~paste("<b>City</b>", data$city, "<br>",
                                                                                           "<b>Country:</b>", data$country, "<br>")) %>%
-      addProviderTiles(providers$Esri.NatGeoWorldMap)
+      addProviderTiles(providers$CartoDB.Positron)
     
   })
 }
